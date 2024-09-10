@@ -1,0 +1,6 @@
+"scenario_id","scenario_name","scenario_fullname","round","date_round"
+"A-2023-10-27","optInf_optSen","Optimistic protection from both senior and infant interventions","round1","2023-11-12"
+"B-2023-10-27","optInf_pessSen","Optimistic protection from infant monoclonals, Pessimistic protection from senior vaccination","round1","2023-11-12"
+"C-2023-10-27","pessInf_optSen","Pessimistic protection from infant monoclonals, Optimistic protection from senior vaccination","round1","2023-11-12"
+"D-2023-10-27","pessInf_pessSen","Pessimistic protection from both senior and infant interventions","round1","2023-11-12"
+"E-2023-10-27","counter_fact.","Counterfactual","round1","2023-11-12"

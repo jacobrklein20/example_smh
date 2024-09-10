@@ -1,0 +1,45 @@
+{
+  "pathogen": "RSV",
+  "pathogen_display_name": "RSV",
+  "scenario_id": {
+    "1": "A-2023-10-27",
+    "2": "B-2023-10-27",
+    "3": "C-2023-10-27",
+    "4": "D-2023-10-27",
+    "5": "E-2023-10-27"
+  },
+  "model_name": {
+    "1": "Ensemble_LOP",
+    "2": "Ensemble_LOP_untrimmed",
+    "3": "Ensemble",
+    "4": "team2-modelb",
+    "5": "team3-modelc",
+    "6": "team4-modeld",
+    "7": "team5-modele"
+  },
+  "color_dict":{
+    "Ensemble_LOP": "rgba(103, 72, 106, 1)",
+    "Ensemble_LOP_untrimmed": "rgba(136, 174, 225, 1)",
+    "Ensemble": "rgba(169, 169, 255, 1)",
+    "team2-modelb": "rgba(163, 165, 0, 1)",
+    "team3-modelc": "rgba(0, 191, 125, 1)",
+    "team4-modeld": "rgba(255, 103, 164, 1)",
+    "team5-modele": "rgba(108, 218, 250, 1)"
+  },
+    "pathogen_color_dict": {
+    "Combined": "rgba(116, 113, 174, 1)",
+    "Flu": "rgba(200, 166, 02, 1)",
+    "COVID-19": "rgba(102, 204, 238, 1)",
+    "RSV": "rgba(34, 136, 51, 1)"
+  },
+  "location_order": [
+    "Oregon", "Idaho", "Washington", "Alaska", "Hawaii", "Arizona", "California", "Nevada", "Colorado", "Utah",
+    "Wyoming", "South Dakota", "Montana", "North Dakota", "Missouri", "Kansas", "Nebraska", "Iowa", "Louisiana",
+    "Texas", "New Mexico", "Arkansas", "Oklahoma", "Indiana", "Illinois", "Ohio", "Wisconsin", "Michigan",
+    "Minnesota", "Mississippi", "Alabama", "Tennessee", "Kentucky", "Florida", "Georgia", "South Carolina",
+    "North Carolina", "Virginia", "West Virginia", "District of Columbia", "Maryland", "Delaware", "New Jersey",
+    "Pennsylvania", "Connecticut", "Rhode Island", "Massachusetts", "New York", "New Hampshire", "Vermont",
+    "Maine"
+  ]
+}
+
