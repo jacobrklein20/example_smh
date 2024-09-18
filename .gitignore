@@ -51,3 +51,6 @@ rsconnect/
 
 # Other
 attic/
+cache-*
+.idea
+__pycache__
