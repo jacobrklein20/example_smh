@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.column {
+  float: left;
+}
+
+.right-sidebar {
+    border-left: 2px solid #bfbfbf;
+    width: 73%;
+}
+
+.left {
+    width: 25%;
+}
+
+.right {
+    width: 75%;
+}
+
+.column_notes {
+    float: left;
+    width: 45%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.hr-notes {
+    height: 0.5px;
+    color: #bfbfbf;
+    background-color: #bfbfbf;
+    margin: 15px;
+}
+
+* {
+    font-family: 'Montserrat', serif;
+}
+
+table, th, td {
+  border-collapse:collapse;
+  padding: 15px;
+  table-layout: fixed;
+    width: 100%;
+}
+
+table thead th {
+  border-bottom: 1px solid #ddd;
+}
+
+th, td {
+  padding: 5px;
+}
+
+.title {
+    color: #2d5973
+}
+
+
+.span_sidebar {
+    color: dimgray;
+    font-size: 16px;
+}
+
+.disabled {
+    color: dimgray;
+}
+
+.checklist {
+    font-size: 14px;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.dropdown {
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+.radioItems {
+    font-size: 14px;
+    display: block;
+    padding-bottom: 5px;
+}
+
+.plot_tabs {
+    border-top-left-radius: 3px;
+}
+
+.plot_tabs-container {
+    width: 100%;
+    border-bottom: 2px solid #2daed8;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.plot_tab {
+    border-top: 3px solid transparent !important;
+    border-left: 2px solid white !important;
+    border-right: 2px solid white !important;
+    border-bottom: 1px solid #2daed8 !important;
+    outline-color: #2daed8 !important;
+    padding: 12px !important;
+    display: flex !important;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.plot_tab--selected {
+    color: white !important;
+    border-left: 1px solid lightgrey !important;
+    border-right: 1px solid lightgrey !important;
+    background-color: #2daed8 !important;
+    border-top:  3px solid #2daed8 !important;
+}
+
+.round_tabs{
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+.round_tab {
+    border-bottom: 3px solid #2daed8 !important;
+    padding: 15px 30px !important;
+    display: flex !important;
+    font-size: 14px;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.round_tab--selected {
+    color: white !important;
+    border-left: 1px solid lightgrey !important;
+    border-right: 1px solid lightgrey !important;
+    background-color: #2daed8 !important;
+    border-top:  3px solid #2daed8 !important;
+}
+
+
+.bottom_notes {
+    margin: 50px 13% 50px 13%;
+    border: 2px solid #bfbfbf !important;
+    padding-left: 25px;
+    padding-bottom:25px;
+}
+
+.left_notes {
+    border-right: 2px solid #bfbfbf;
+    padding-right:25px
+}
+
+.right_notes {
+    margin-left: 25px;
+}
+
+.menu_pages {
+    background-color: white;
+    float: right;
+    border-radius: 30px;
+    border: 1.5px solid #2d5973;
+    color: #2d5973;
+    padding: 5px 15px 5px;
+    display: block;
+    margin: 5px 5px 35px 5px;
+    text-decoration: none;
+}
+
+img {
+    width: 65%;
+    height: 80%;
+}
+
+.plot_bar {
+    width: 100%;
+    display: flex;
+}
+
+.plot_bar_sel {
+    width: 25%;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.err_bar {
+    display: ruby;
+    margin-left: 5%;
+}
+
+.scenario_table {
+    height: 1000px;
+    width: 100%;
+}
+
+.multi_bar_radio {
+    margin-left: 5%;
+    width: 60%
+}
+
+.radio_heatmap {
+    margin-left: 5%;
+    width: 15%;
+    display: inline-grid;
+}
+
+.dropdown_heatmap {
+    margin-left: 5%;
+    width: 20%;
+    display: inline-block;
+}

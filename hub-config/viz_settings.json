@@ -3,8 +3,8 @@
     "round_number": 1,
     "date_round": "2023-11-12",
     "show": "True",
-    "plot_tab": ["scenario", "spaghetti", "model_specific", "scen_comparison", "peak_time_model", "peak_size",
-      "multipat_plot_comb"],
+    "plot_tab": ["scenario", "spaghetti", "model_specific", "scen_comparison",
+    "peak_time_model", "peak_size"],
     "target": {
       "inc hosp": "Incident Hospitalization",
       "cum hosp": "Cumulative Hospitalization"
@@ -15,7 +15,7 @@
       "5-64": "5 to 64 years old (included)",
       "65-130": "65+ year old",
       "0-130": "Overall Population"
-  },
+    },
     "def_target": "hosp",
     "models": ["Ensemble_LOP_untrimmed", "Ensemble_LOP", "Ensemble",
       "team2-modelb", "team3-modelc", "team4-modeld", "team5-modele"],
@@ -50,7 +50,7 @@
       },
       "notes": null
     },
-      "scenario_comparison": {
+    "scenario_comparison": {
       "reference": {
         "Optimistic Senior Protection &<br>Optimistic Infant Protection (A)": [
           "A-2023-10-27",
@@ -69,47 +69,6 @@
           "E-2023-10-27"
         ]
       }
-    },
-    "multi-pathogen_plot": {
-      "pathogen": {
-        "covid-19": {
-          "display_name": "COVID-19",
-          "website": "https://covid19scenariomodelinghub.org/",
-          "round": "round17",
-          "scenario": {
-            "id":["A-2023-04-16", "B-2023-04-16", "C-2023-04-16", "D-2023-04-16", "E-2023-04-16", "F-2023-04-16"],
-            "name":["No booster, low immune escape", "No booster, high immune escape", "65+ booster, low immune escape",
-              "65+ booster, high immune escape", "All booster, low immune escape", "All booster, high immune escape"],
-            "dict": {"A-2023-04-16": "65", "B-2023-04-16": "66", "C-2023-04-16": "67", "D-2023-04-16":  "68",
-              "E-2023-04-16":  "69", "F-2023-04-16": "70"}
-          },
-          "default_selection": ["D-2023-04-16", "F-2023-04-16"]
-        },
-        "flu": {
-          "website": "https://fluscenariomodelinghub.org/",
-          "round": "round4",
-          "round_display": "1 - 2023/2024",
-          "display_name": "Flu",
-          "scenario": {
-            "id":["A-2023-08-14","B-2023-08-14","C-2023-08-14","D-2023-08-14","E-2023-08-14", "F-2023-08-14"],
-            "name":["High vaccine coverage, A/H3N2 dominance",
-              "High vaccine coverage, A/H1N1 dominance", "Business as usual vaccine coverage, A/H3N2 dominance",
-              "Business as usual vaccine coverage, A/H1N1 dominance", "Low vaccine coverage, A/H3N2 dominance",
-              "Low vaccine coverage, A/H1N1 dominance"],
-            "dict": {"A-2023-08-14": "13", "B-2023-08-14": "14", "C-2023-08-14": "15", "D-2023-08-14":  "16",
-              "E-2023-08-14":  "17", "F-2023-08-14": "18"}
-          },
-          "default_selection": ["D-2023-08-14"]
-        }
-      },
-      "peak": {
-        "Peak Season 2022-2023": {
-          "start_date": "2022-09-30",
-          "end_date": "2023-07-01"
-        }
-      },
-      "unselect": ["B-2023-10-27", "C-2023-10-27","D-2023-10-27", "E-2023-10-27", "F-2023-10-27"],
-      "notes": null
     }
   }
 }
