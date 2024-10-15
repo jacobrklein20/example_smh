@@ -103,7 +103,6 @@ case we calculate:
        dictionary) to reduce output file size.
 
 
-
 ## Visualization projection files
 
 ### Column description:
