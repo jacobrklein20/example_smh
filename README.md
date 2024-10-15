@@ -28,6 +28,35 @@ using model output files: calculate additional targets, and ensembles
         - `scenario_round_info.csv`: CSV containing the scenario description
         for each round: ID, round ID, Short and Full Name.
 
+### Oberseved Data
+
+#### RSV-NET data
+
+The [Weekly Rates of Laboratory-Confirmed RSV Hospitalizations from the RSV-NET Surveillance System](https://data.cdc.gov/Public-Health-Surveillance/Weekly-Rates-of-Laboratory-Confirmed-RSV-Hospitali/29hc-w46k)
+is used for the hospitalization target after standardization. Please see 
+[RSV SMH repository](https://github.com/midas-network/rsv-scenario-modeling-hub/tree/main/target-data)
+for more information
+
+The RSV-NET source files is standardized following these steps:
+
+1. Load the RSV-NET file  and filter the source files to keep only the information of interest:
+   - Select overall race and sex and age groups of interest (hub standard format
+   in parentheses) :
+     - 0-4 years (`"0-4"`), 5-17 years (`"5-17"`),  18-49 years (`"18-49"`),
+       50-64 years (`"50-64"`), 65+ years (`"65-130"`),  0-<6 months (`"0-0.49"`), 
+       6-<12 months (`"0.5-0.99"`), 1-<2 years (`"1-1.99"`),  2-4 years (`"2-4"`),
+       18+ (Adults) (`"18-130"`),  and overall (`"0-130"`)
+   - Remove the seasonal summaries
+2. Re-code variable and associated values to the hub standard.   
+3. Calculate the hospitalization number by applying:
+   -  rate * population size / 100000
+   - For the 6 months age group, the population size for the corresponding year
+   divided by 2 is used.
+   - The population data from the year 2022 are used for the year 2023 & 2024
+   - The population size information comes from the US Census Bureau
+4. Standardize the output to the hub format   
+5. Write the output in a CSV format with the date in the filename
+
 
 ## Visualization projection files
 
