@@ -57,6 +57,52 @@ The RSV-NET source files is standardized following these steps:
 4. Standardize the output to the hub format   
 5. Write the output in a CSV format with the date in the filename
 
+### Model output file 
+
+After submission from the team, the model output data are processed and only some
+specific output are selected for visualization.
+
+#### Workflow Process
+
+1. Calculating Quantiles, Peak Targets and Cumulative Value: As only the trajectories
+are required, it's necessary to calculate the missing output type if missing. In this
+case we calculate:
+ - the cumulative trajectories
+ - the quantiles associated from the weekly target
+ - the peak size and time 
+
+2. Generate 3 Ensembles for all targets:
+    - "Ensemble": This ensemble is the weighted median of each quantile by 
+    quantiles, scenario, location, target, horizon, age group.
+    - "Ensemble LOP" and "Ensemble LOP untrimmed": The LOP ensemble projection 
+    is calculated by averaging cumulative probabilities of a given value across 
+    submissions. For the "Ensemble LOP" only, for each value, the highest and 
+    lowest probabilities are given zero weight and the remaining are weighted 
+    equally.From the resulting distribution, medians and uncertainty intervals 
+    are derived. The trimmed linear opinion pool ensemble (Ensemble LOP) 
+    is estimated by 
+    1) simulating N forecasts from each of the component models, 
+    where N is selected proportionate to the weight of the model, 
+    2) linearly pooling those forecasts into a multi-modal distribution, and 
+    3) (only trimmed ensemble) truncating the pooled distribution at the lower 
+    and upper bounds, by an amount equivalent to 1 over the sum of the model weights.
+
+3. Prepare Visualization file: Apply some format mutation:
+    - Force the "origin_date" column as Date format and add a `target_end_date`
+    column corresponding to the date projected. 
+    - Ensure the location column is written as expected (with a training 0 
+    with single digit fips value) and translate it to full name
+    - Keep only the quantiles of interest and samples output and target of
+    interest
+    - Round the  "type_id" value column to 3 digits to avoid floating issue for
+    quantiles and samples output
+    - Remove non-required additional horizon week projection (for example, 
+    limit to 29 weeks for round 1)
+    - Keep only the age groups of interest: `"0-0.99"`, `"1-4"`, `"65-13
+    - Change "scenario_id" and "model_name" to numeric value (using internal 
+       dictionary) to reduce output file size.
+
+
 
 ## Visualization projection files
 
