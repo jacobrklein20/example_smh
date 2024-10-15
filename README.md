@@ -28,7 +28,7 @@ using model output files: calculate additional targets, and ensembles
         - `scenario_round_info.csv`: CSV containing the scenario description
         for each round: ID, round ID, Short and Full Name.
 
-### Oberseved Data
+### Observed Data
 
 #### RSV-NET data
 
