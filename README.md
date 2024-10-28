@@ -57,6 +57,34 @@ The RSV-NET source files is standardized following these steps:
 4. Standardize the output to the hub format   
 5. Write the output in a CSV format with the date in the filename
 
+#### Other pathogens
+
+* **Flu Data** Sources: 
+  [HHS COVID-19 Reported Patient Impact and Hospital Capacity by State Timeseries](https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/g62h-syeh). 
+  The target to be projected is confirmed influenza hospital admissions, 
+  reported as `previous_day_admission_influenza_confirme`d. Therefore, 
+  before aggregating to the weekly values, the gold standard or 
+  “truth” data will shift the values in the date column one day earlier
+  so that the date aligns with the date of admission. As an example, if 17 
+  confirmed influenza hospital admissions were reported in the
+  `previous_day_admission_influenza_confirmed` field in a row where the 
+  date field was 2021-10-30, then the “truth” dataset would assign 
+  those 17 hospital admissions to a date of 2021-10-29. These cases
+  would then be counted towards the weekly total computed for EW43, 
+  which runs from 2021-10-24 through 2021-10-30.
+      
+* **COVID-19 Data** Sources: For COVID-19 hospitalizations, we use 
+  the same truth data as the COVID-19 Forecast Hub, i.e., the 
+  hospitalization data from the HHS. We will use the distribution of the 
+  HHS data as provided by the 
+  [COVIDcast Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hhs.html) 
+  maintained by 
+  the [Delphi Research Group](https://delphi.cmu.edu/about/) at Carnegie 
+  Mellon University.
+
+** Note that HHSprotect will temporarily go offline at the end of April 2024 **
+
+
 ### Model output file 
 
 After submission from the team, the model output data are processed and only some
@@ -69,8 +97,7 @@ are required, it's necessary to calculate the missing output type if missing. In
 case we calculate:
  - the cumulative trajectories
  - the quantiles associated from the weekly target
- - the peak size and time 
-
+ - the peak size and time
 2. Generate 3 Ensembles for all targets:
     - "Ensemble": This ensemble is the weighted median of each quantile by 
     quantiles, scenario, location, target, horizon, age group.
@@ -86,7 +113,6 @@ case we calculate:
     2) linearly pooling those forecasts into a multi-modal distribution, and 
     3) (only trimmed ensemble) truncating the pooled distribution at the lower 
     and upper bounds, by an amount equivalent to 1 over the sum of the model weights.
-
 3. Prepare Visualization file: Apply some format mutation:
     - Force the "origin_date" column as Date format and add a `target_end_date`
     column corresponding to the date projected. 
