@@ -74,6 +74,7 @@ def query_proj_data(location, target, type_name, round_number, path="./visualiza
         if "scenario_id" in df.columns:
             order_col.append("scenario_id")
         if "target_end_date" in df.columns:
+            df["target_end_date"] = df["target_end_date"].astype(str)
             order_col.append("target_end_date")
         if len(order_col) > 0:
             df = df.sort_values(order_col)
