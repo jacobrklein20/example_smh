@@ -429,9 +429,9 @@ def prep_multipat_plot_comb(pathogen_information, calc_mean=False):
         # Preparation
         pathogen_name = patho.lower()
         if calc_mean is True:
-            f2.update({"proportion_" + pathogen_name: [med, mean, q1, q2, q3, q4, q5, q6, q7, q8]})
+            f2.update({"proportion_" + pathogen_name: [mean, q4, q5]})
         else:
-            f2.update({"proportion_" + pathogen_name: [med, q1, q2, q3, q4, q5, q6, q7, q8]})
+            f2.update({"proportion_" + pathogen_name: [q4, q5]})
         all_sample["proportion_" + pathogen_name] = all_sample["value_" + pathogen_name] / \
                                                     all_sample["value"]
     # Calculate the quantiles for each "value" and "proportion" columns
@@ -445,49 +445,4 @@ def prep_multipat_plot_comb(pathogen_information, calc_mean=False):
                                detail_quantile.columns.get_level_values(1))
     p3 = time.time()
     print(f'Quantile: First groupby: {p2 - p1}, second groupby: {p3 - p2}')
-    return {"all": all_quantile, "detail": detail_quantile}
-
-
-# trying to reduce the calculation time with little success
-def prep_multipat_plot_comb2(pathogen_information, calc_mean=False):
-    all_sample = pd.DataFrame()
-    func_list = [med, q1, q2, q3, q4, q5, q6, q7, q8]
-    func_list_mean = [med, mean, q1, q2, q3, q4, q5, q6, q7, q8]
-    val_cols = ['value_' + k for k in pathogen_information.keys()] + ['target_end_date']
-    prop_cols = ['proportion_' + k for k in pathogen_information.keys()] + ['target_end_date']
-
-    for patho in pathogen_information:
-        # Preparation
-        pathogen_name = patho.lower()
-
-        # Merge all pathogen in one dataframe
-        if len(all_sample) > 0:
-            if len(pathogen_information[patho]["dataframe"]) > 0:
-                all_sample = pd.merge(all_sample, pathogen_information[patho]["dataframe"],
-                                      on=["target_end_date", "sample_id_n"])
-            else:
-                all_sample = all_sample.copy()
-                all_sample["value_" + pathogen_name] = pd.NA
-        else:
-            all_sample = pathogen_information[patho]["dataframe"]
-
-    # Calculate sum of all pathogen
-    all_sample["value"] = all_sample[
-        [col for col in all_sample.columns if col.startswith('value_')]].sum(axis=1)
-
-    # Calculate proportions
-    for patho in pathogen_information:
-        # Preparation
-        pathogen_name = patho.lower()
-        all_sample["proportion_" + pathogen_name] = all_sample["value_" + pathogen_name] / \
-                                                    all_sample["value"]
-
-    # Calculate the quantiles for each "value" and "proportion" columns
-    all_quantile = all_sample[val_cols].groupby(["target_end_date"]).agg(func_list)
-    all_quantile.columns = all_quantile.columns.get_level_values(
-        0) + "-" + all_quantile.columns.get_level_values(1)
-    detail_quantile = all_sample[prop_cols].groupby(["target_end_date"]).agg(func_list_mean)
-    detail_quantile.columns = (detail_quantile.columns.get_level_values(
-        0) + "-" + detail_quantile.columns.get_level_values(1))
-
     return {"all": all_quantile, "detail": detail_quantile}
